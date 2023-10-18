@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style/style.css">
+    <title>Rede Social(Pets)</title>
+</head>
+<body>
+    <header>
+        <h1>Rede Social(Pets)</h1>
+        {% if session["login"]==False %}
+        <form method="post" action="{{ url_for('dashboard') }}">
+            <label for="">
+                <input type="text" name="nome" placeholder="nome">
+                <input type="password" name="senha" placeholder="senha">
+                <input type="submit" value="login">
+            </label>
+        </form>
+
+        {% else %}
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}">Perfil</a></li>
+            <li><a href="{{ url_for('logout') }}">Sair</a></li>
+        </ul>
+        {% endif%}
+    </header>
+</body>
+</html>

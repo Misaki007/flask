@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style/style.css">
+    <title>Rede Social(Pets)</title>
+</head>
+<body>
+    <header>
+        <h1>Rede Social(Pets)</h1>
+
+        <ul>
+            <li><a href="{{ url_for('home')}} ">Início</a></li>
+            <li><a href="{{ url_for('logout') }}">Sair</a></li>
+        </ul>
+    </header>
+
+    <section class="perfis">
+        <h1>Perfis criados:</h1>
+        <ul>
+            {% for Perfil in Perfis.perfil %}
+                <li><a href="#">{{Perfil.nome}}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="sessao_adicionar">
+        <h1>Adicionar Perfil</h1>
+        <form method="post" action="{{ url_for('adicionar') }}">
+            <input type="text" name="nome" placeholder="nome">
+            <input type="text" name="descricao" placeholder="descrição">
+            <input type="text" name="dono" placeholder="Nome do dono">
+            <input type="file" name="imagem" placeholder="imagem">
+        </form>
+    </section>
+</body>
+</html>
