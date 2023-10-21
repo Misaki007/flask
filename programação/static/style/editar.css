@@ -1,0 +1,65 @@
+.container {
+    overflow: hidden;
+    position: relative;
+    
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 10px;
+    height: 150px;
+    width: 150px;
+    margin: 20px 0px 0px 20px;
+    
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.input_foto {
+    padding-top: 500px;
+    font-size: 200px;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    transition-duration: 200ms;
+}
+
+.input_foto:hover {
+    opacity: 0.5;
+    background-color: rgba(122, 122, 121, 0.658);
+    transition-duration: 200ms;
+}
+
+#nome, #dono, #descricao {
+    border: none;
+    outline: none;
+    position: absolute;
+}
+
+#nome {
+    left: 185px;
+    top: 20px;
+
+    
+    color: rgb(49, 49, 49);
+    font-weight: bold;
+    font-size: 2.5em;
+    width: 350px;
+    
+}
+
+#dono {
+    left: 185px;
+    top: 75px;
+    color: gray;
+    width: 350px;
+}
+
+#descricao {
+    top: 140px;
+    width: 480px;
+    white-space: pre-line;
+    left: 185px;
+    
+    font-size: 1.4em;
+}
+
+

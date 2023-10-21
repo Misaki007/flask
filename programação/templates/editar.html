@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style/style.css">
+    <link rel="stylesheet" href="/static/style/perfil.css">
+    <link rel="stylesheet" href="/static/style/editar.css">
+    <title>Rede Social(Pets)</title>
+</head> 
+<body>
+    <header>
+        <h1 class="logo">Petsbook</h1>
+
+        <article class="option">
+            <a href="{{ url_for('dashboard') }}">Perfil</a>
+            <a href="{{ url_for('logout') }}">Sair</a>
+        </article>
+    </header>
+
+    <section class="main">
+        
+        <form method="post" action="{{ url_for('editar', nome_antigo=perfil.nome) }}" enctype="multipart/form-data">
+            <div class="container" style="background-image: url('/static/images/{{ perfil.imagem_path }}');">
+                <input class="input_foto" type="file" name="foto" value="{{ perfil.imagem_path }}">
+            </div>
+            <input id="nome" type="text" name="nome" value="{{ perfil.nome }}">
+            <input id="dono" type="text" name="dono" value="{{ perfil.dono }}">
+            <input type="text" name="descricao" id="descricao" value="{{ perfil.descricao }}">
+            <button class="editar" style="right: 18px;"><input type="submit" value="Confirmar"></button>
+        </form>
+    </section>
+
+</body>
+</html>

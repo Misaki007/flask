@@ -1,0 +1,123 @@
+.main {
+    height: 300px;
+    width: 700px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px rgb(230, 227, 227);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.container {
+    overflow: hidden;
+    position: relative;
+    
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 10px;
+    height: 150px;
+    width: 150px;
+    margin: 20px 0px 0px 20px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.editar {
+    height: 50px;
+    width: 70px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(77, 107, 204);
+    right: 100px;
+    top: 20px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editar > input[type=submit] {
+    background-color: rgba(173, 45, 45, 0);
+    outline: none;
+    cursor: pointer;
+    padding: 18px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+}
+
+.excluir {
+    height: 50px;
+    width: 70px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(57, 58, 58);
+    right: 18px;
+    top: 20px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.excluir > input[type=submit] {
+    background-color: rgba(173, 45, 45, 0);
+    outline: none;
+    cursor: pointer;
+    padding: 18px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+}
+
+#nome, #dono, #descricao {
+    position: absolute;
+}
+
+#nome {
+    left: 185px;
+    top: 20px;
+
+    
+    color: rgb(49, 49, 49);
+    font-weight: bold;
+    font-size: 2.5em;
+    width: 350px;
+    
+}
+
+#dono {
+    left: 185px;
+    top: 75px;
+    color: gray;
+    width: 350px;
+}
+
+#descricao {
+    top: 140px;
+    width: 480px;
+    height: 150px;
+    line-break: anywhere;
+    overflow: hidden;
+    white-space: pre-line;
+    left: 185px;
+    
+    font-size: 1.4em;
+}
+
+.curtidas {
+    position: absolute;
+    right: 100px;
+    top: 20px;
+    color: gray;
+    font-weight: bold;
+    font-size: 1.4em;
+    
+    height: 50px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -1,0 +1,49 @@
+.perfis {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+h1, h2 {
+    
+    font-weight: bold;
+    color:rgb(77, 107, 204);
+}
+
+h1 {
+    font-size: 2.2em;
+}
+
+.sessao_adicionar, .sessao_adicionar > form {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    margin-top: 10px;
+    font-size: 2em;
+}
+
+.submeter {
+    border: none;
+    border-radius: 10px;
+    height: 60px;
+    width: 120px;
+    background-color: rgb(77, 107, 204);
+    color: white;
+    margin-bottom: 100px;
+    cursor: pointer;
+}
+
+.submeter > input {
+    border: none;
+    background-color: rgba(247, 243, 243, 0);
+    color: white;
+    font-weight: bold;
+    font-size: 1.4em;
+    cursor: pointer;
+}

@@ -4,34 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style/style.css">
+    <link rel="stylesheet" href="/static/style/dashboard.css">
+    <link rel="stylesheet" href="/static/style/perfil.css">
     <title>Rede Social(Pets)</title>
-</head>
+</head> 
 <body>
     <header>
-        <h1>Rede Social(Pets)</h1>
+        <h1 class="logo">Petsbook</h1>
 
-        <ul>
-            <li><a href="{{ url_for('home')}} ">Início</a></li>
-            <li><a href="{{ url_for('logout') }}">Sair</a></li>
-        </ul>
+        <article class="option">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('logout') }}">Sair</a>
+        </article>
     </header>
 
     <section class="perfis">
-        <h1>Perfis criados:</h1>
+        <h1>Perfis criados</h1>
         <ul>
-            {% for Perfil in Perfis.perfil %}
-                <li><a href="#">{{Perfil.nome}}</a></li>
+            {% for Perfil in Perfis %}
+                <section class="main">
+                    <div class="container" style="background-image: url('/static/images/{{ Perfil.imagem_path }}');"></div>
+                    <p id="nome">{{ Perfil.nome }}</p>
+                    <p id="dono">De {{ Perfil.dono }}</p>
+                    <p id="descricao">{{ Perfil.descricao }}</p>
+                    <form action="{{ url_for('editar', nome_antigo=Perfil.nome) }}">
+                        <button class="editar"><input type="submit" value="Editar"></button>
+                    </form>
+                    <form action="{{ url_for('excluir', nome_antigo=Perfil.nome) }}">
+                        <button class="excluir"><input type="submit" value="Excluir"></button>
+                    </form>
+                </section>
             {% endfor %}
         </ul>
     </section>
 
     <section class="sessao_adicionar">
         <h1>Adicionar Perfil</h1>
-        <form method="post" action="{{ url_for('adicionar') }}">
-            <input type="text" name="nome" placeholder="nome">
-            <input type="text" name="descricao" placeholder="descrição">
-            <input type="text" name="dono" placeholder="Nome do dono">
+        <form method="post" action="{{ url_for('adicionar') }}" enctype="multipart/form-data">
+            <h2>Nome:</h2>
+            <input type="text" name="nome" placeholder="nome" required>
+            <h2>Descrição:</h2>
+            <input type="text" name="descricao" placeholder="descrição" required>
+            <h2>Nome do Dono:</h2>
+            <input type="text" name="dono" placeholder="Nome do dono" required>
+            <h2>Imagem:</h2>
             <input type="file" name="imagem" placeholder="imagem">
+            <h2></h2>
+            <button class="submeter"><input type="submit" value="adicionar"></button>
         </form>
     </section>
 </body>

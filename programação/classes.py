@@ -1,14 +1,10 @@
 
 class Perfil:
-    def __init__(self, imagem, nome, descricao, dono):
-        self.imagem = imagem
+    def __init__(self, nome, descricao, dono, imagem_path):
         self.nome = nome
         self.descricao = descricao
         self.dono = dono
+        self.imagem_path = imagem_path
+        self.curtidas = 0
 
-class Perfis:
-    def __init__(self):
-        self.perfis = []
 
-    def adicionar(self, perfil):
-        self.perfis.append(perfil)

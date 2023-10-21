@@ -4,26 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style/style.css">
+    <link rel="stylesheet" href="/static/style/perfil.css">
+    <link rel="stylesheet" href="/static/style/index.css">
     <title>Rede Social(Pets)</title>
 </head>
 <body>
     <header>
-        <h1>Rede Social(Pets)</h1>
+        <h1 class="logo">Petsbook</h1>
         {% if session["login"]==False %}
-        <form method="post" action="{{ url_for('dashboard') }}">
+        <form class="login" method="post" action="{{ url_for('dashboard') }}">
             <label for="">
-                <input type="text" name="nome" placeholder="nome">
-                <input type="password" name="senha" placeholder="senha">
-                <input type="submit" value="login">
+                <input class="camp" type="text" name="nome" placeholder="nome">
+                <input class="camp" type="password" name="senha" placeholder="senha">
+                <input class="button" type="submit" value="Login">
             </label>
         </form>
 
         {% else %}
-        <ul>
-            <li><a href="{{ url_for('dashboard') }}">Perfil</a></li>
-            <li><a href="{{ url_for('logout') }}">Sair</a></li>
-        </ul>
+        <article class="option">
+            <a href="{{ url_for('dashboard') }}">Perfil</a>
+            <a href="{{ url_for('logout') }}">Sair</a>
+        </article>
         {% endif%}
     </header>
+
+    <section class="perfis">
+        
+        <ul>
+            {% for Perfil in Perfis %}
+                <section class="main">
+                    <div class="container" style="background-image: url('/static/images/{{ Perfil.imagem_path }}');"></div>
+                    <p id="nome">{{ Perfil.nome }}</p>
+                    <p id="dono">De {{ Perfil.dono }}</p>
+                    <p id="descricao">{{ Perfil.descricao }}</p>
+                    <p class="curtidas">{{ Perfil.curtidas }}</p>
+                    <form action="{{ url_for('curtidas', nome_antigo=Perfil.nome) }}">
+                        <button class="editar" style="right: 18px;"><input type="submit" value="Curtir"></button>
+                    </form>
+                    
+                    
+                </section>
+            {% endfor %}
+        </ul>
+    </section>
 </body>
 </html>
